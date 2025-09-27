@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'; // useRef ko yahan se hata diya hai
+import React, { useEffect } from 'react'; // useRef ko yahan se hata diya hai &
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
  
