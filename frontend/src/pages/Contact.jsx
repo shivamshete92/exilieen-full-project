@@ -70,7 +70,7 @@ const Contact = () => {
     setStatus("Sending...");
     try {
       // --- THIS IS THE UPDATED LINE ---
-      const response = await fetch("http://http://13.51.160.20:5000/contact", {
+      const response = await fetch("http://13.51.160.20:5000/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
