@@ -1,0 +1,170 @@
+.rnd-container {
+  padding: 100px 20px;
+  background: linear-gradient(to bottom, #0a0f1a, #050a12);
+  font-family: "Poppins", sans-serif;
+  color: white;
+}
+
+.rnd-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.rnd-header h1 {
+  font-size: 2.2rem;
+  color: #fca311;
+  margin-bottom: 15px;
+}
+
+.rnd-header p {
+  font-size: 1rem;
+  line-height: 1.8;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 15px;
+  text-align: center;
+}
+
+.rnd-focus h2,
+.rnd-strengths h2,
+.rnd-goals h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin: 40px 0 20px;
+  color: #fca311;
+}
+
+.focus-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  padding: 20px 10px;
+}
+
+.focus-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #fca311;
+  border-radius: 16px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.focus-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 12px #fca31188;
+}
+
+.focus-icon {
+  font-size: 2.3rem;
+  color: #fca311;
+  margin-bottom: 10px;
+}
+
+.focus-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.focus-card p {
+  font-size: 0.95rem;
+}
+
+.rnd-strengths ul {
+  max-width: 700px;
+  margin: 0 auto;
+  list-style: none;
+  padding-left: 0;
+}
+
+.rnd-strengths li {
+  font-size: 1rem;
+  padding: 10px 0;
+  border-bottom: 1px solid #ffffff22;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+}
+
+.tick-icon {
+  color: #fca311;
+  margin-right: 10px;
+  vertical-align: middle;
+  font-size: 1.2rem;
+}
+
+.rnd-goals {
+  max-width: 900px;
+  margin: 50px auto 0;
+}
+
+.rnd-goals h2 {
+  text-align: center;
+}
+
+/* UPDATED AND NEW STYLES START HERE */
+
+.rnd-goals ul {
+  max-width: 700px;
+  margin: 0 auto;
+  list-style: none;
+  padding-left: 0;
+}
+
+.rnd-goals li {
+  font-size: 1rem;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  padding: 10px 0;
+  border-bottom: 1px solid #ffffff22;
+}
+
+/* UPDATED AND NEW STYLES END HERE */
+
+.goal-icon {
+  color: #fca311;
+  font-size: 1.2rem;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .rnd-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .rnd-focus h2,
+  .rnd-strengths h2,
+  .rnd-goals h2 {
+    font-size: 1.6rem;
+  }
+
+  .focus-icon {
+    font-size: 2rem;
+  }
+
+  .rnd-goals li { /* Changed from .rnd-goals p */
+    font-size: 0.95rem;
+  }
+
+  .tick-icon {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .rnd-container {
+    padding: 80px 15px;
+  }
+
+  .focus-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rnd-header p,
+  .focus-card p {
+    font-size: 0.9rem;
+  }
+}

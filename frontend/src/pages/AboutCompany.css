@@ -1,0 +1,169 @@
+.about-company {
+  background: linear-gradient(to bottom, #0a0f1a, #050a12);
+  color: #f8f9fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 120px 120px 80px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  animation: fadeIn 1s ease;
+}
+.banner h1 {
+  color:#f99807;
+  text-align: center;
+}
+
+/* SECTION TITLE STYLE */
+.section-title,
+.main-content h3 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #f99807;
+  text-shadow: 0 0 15px rgba(0, 234, 255, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  animation: fadeIn 1.5s ease;
+}
+
+/* CONTENT WRAPPER */
+.content-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  max-width: 1300px;
+  margin: auto;
+}
+
+/* MAIN CONTENT BLOCK */
+.main-content {
+  flex: 3;
+}
+
+/* PARAGRAPHS / VISION */
+.main-content p {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  line-height: 1.8;
+  font-size: 1.05rem;
+  color: #e2e8f0;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 30px rgba(0, 234, 255, 0.06);
+  transition: all 0.3s ease;
+  animation: fadeIn 1.4s ease;
+}
+
+.main-content p:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(0, 234, 255, 0.15);
+}
+
+/* TEAM LIST */
+.main-content ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.main-content ul li {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 18px 20px 18px 45px;
+  border-radius: 15px;
+  position: relative;
+  font-size: 1rem;
+  color: #f1f5f9;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(0, 234, 255, 0.05);
+}
+
+.main-content ul li::before {
+  content: "✔";
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #f99807;
+  font-size: 1.2rem;
+}
+
+.main-content ul li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 234, 255, 0.1);
+}
+
+/* SIDEBAR IMAGES */
+.sidebar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: fadeInRight 1.5s ease;
+}
+
+.sidebar img {
+  width: 100%;
+  border-radius: 15px;
+  object-fit: cover;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.5);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+.sidebar img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 45px rgba(0, 234, 255, 0.2);
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 992px) {
+  .content-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .sidebar img {
+    width: 48%;
+  }
+}
+
+@media (max-width: 576px) {
+  .about-company {
+    padding: 80px 15px 60px;
+  }
+
+  .sidebar img {
+    width: 100%;
+  }
+
+  .main-content ul {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title,
+  .main-content h3 {
+    font-size: 2rem;
+  }
+}

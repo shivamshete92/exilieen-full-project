@@ -1,0 +1,304 @@
+/* --- CSS Variables for Easy Theming --- */
+:root {
+  --header-height: 80px;
+  --primary-color: #eb9c0a;
+  --text-color-light: #ffffff;
+  --text-color-dark: #333333;
+  --bg-scrolled: rgba(10, 15, 26, 0.7); /* Semi-transparent dark background */
+  --dropdown-bg: #ffffff;
+  --transition-speed: 0.3s;
+}
+
+/* --- Main Header Styling --- */
+.main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: background-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease, height var(--transition-speed) ease;
+  height: var(--header-height);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.main-header.scrolled {
+  background-color: var(--bg-scrolled);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  height: 70px;
+}
+
+.header-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 25px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* === LOGO FIX STARTS HERE === */
+.logo-link {
+  display: flex;
+  align-items: center;
+  height: 100%; /* Ensures the link container fills the header height */
+}
+
+.logo {
+  /* Corrected height to fit inside the 80px header */
+  height: 75px; 
+  width: auto; /* Maintains the logo's aspect ratio */
+  object-fit: contain;
+  transition: height var(--transition-speed) ease;
+}
+
+.main-header.scrolled .logo {
+  /* Adjusted height for the 70px scrolled header */
+  height: 60px; 
+}
+/* === LOGO FIX ENDS HERE === */
+
+
+/* --- Desktop Navigation Links --- */
+.nav-links {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a,
+.nav-links span {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-color-light);
+  text-decoration: none;
+  cursor: pointer;
+  padding: 8px 0;
+  position: relative;
+  transition: color var(--transition-speed) ease;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.nav-links a::after,
+.nav-links span::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary-color);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--transition-speed) ease-in-out;
+}
+.nav-links a:hover::after,
+.nav-links span:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* --- Desktop Dropdown Menu --- */
+.dropdown {
+  position: relative;
+}
+.dropdown span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.dropdown-arrow {
+  transition: transform var(--transition-speed) ease;
+}
+.dropdown:hover .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+/* === DESKTOP DROPDOWN ALIGNMENT FIX STARTS HERE === */
+.dropdown-menu {
+  position: absolute;
+  top: 110%; /* A little closer to the parent link */
+  left: 0; /* CHANGED: Aligns dropdown to the left of the parent */
+  transform: scaleY(0.9); /* CHANGED: Removed the translateX for centering */
+  background: var(--dropdown-bg);
+  min-width: 200px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 10px 0;
+  list-style: none;
+  opacity: 0;
+  visibility: hidden;
+  transform-origin: top center;
+  transition: opacity var(--transition-speed) ease, visibility var(--transition-speed) ease, transform var(--transition-speed) ease;
+}
+
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: scaleY(1); /* CHANGED: Removed the translateX for centering */
+}
+/* === DESKTOP DROPDOWN ALIGNMENT FIX ENDS HERE === */
+
+
+.dropdown-menu li a {
+  padding: 12px 20px;
+  font-size: 15px;
+  color: var(--text-color-dark);
+  text-shadow: none;
+  display: block;
+  transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+}
+.dropdown-menu li a:hover {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+.dropdown-menu li a::after {
+  display: none;
+}
+
+/* --- FIX FOR SCROLLED DROPDOWN --- */
+.main-header.scrolled .dropdown-menu {
+  background: var(--bg-scrolled);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.main-header.scrolled .dropdown-menu li a {
+  color: var(--text-color-light);
+}
+.main-header.scrolled .dropdown-menu li a:hover {
+  background-color: var(--primary-color);
+  color: var(--text-color-dark);
+}
+
+/* --- Hamburger Icon & Overlay --- */
+.hamburger-icon {
+  display: none;
+  width: 28px;
+  height: 22px;
+  position: relative;
+  z-index: 1001;
+  cursor: pointer;
+}
+.hamburger-icon span {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: var(--text-color-light);
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: all var(--transition-speed) ease-in-out;
+}
+.hamburger-icon span:nth-child(1) { top: 0px; }
+.hamburger-icon span:nth-child(2) { top: 9px; }
+.hamburger-icon span:nth-child(3) { top: 18px; }
+.hamburger-icon.open span:nth-child(1) { top: 9px; transform: rotate(135deg); background: var(--text-color-dark); }
+.hamburger-icon.open span:nth-child(2) { opacity: 0; left: -60px; }
+.hamburger-icon.open span:nth-child(3) { top: 9px; transform: rotate(-135deg); background: var(--text-color-dark); }
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  display: none;
+}
+.main-header.menu-is-open ~ .menu-overlay {
+  display: block;
+}
+
+/* ==============================================
+    MOBILE RESPONSIVE STYLES
+    ============================================== */
+@media (max-width: 992px) {
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: min(70vw, 300px);
+    background: #10141f;
+    flex-direction: column;
+    align-items: flex-start;
+    /* === CHANGES FOR MOBILE MENU LAYOUT === */
+    justify-content: flex-start;  /* Aligns items to the top */
+    padding-top: 100px;           /* Adds space at the top */
+    overflow-y: auto;             /* Makes menu scrollable if needed */
+    /* === END OF CHANGES === */
+    gap: 0;
+    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.2);
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+  }
+
+  .main-header .nav-links.open {
+    transform: translateX(0);
+  }
+
+  .nav-links li {
+    width: 100%;
+  }
+  .nav-links a, .nav-links span {
+    color: var(--text-color-light);
+    font-size: 1.1rem;
+    padding: 15px 30px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-shadow: none;
+  }
+  .nav-links a::after, .nav-links span::after { display: none; }
+
+  /* --- MOBILE ACCORDION DROPDOWN FIX --- */
+  .dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    padding: 0;
+    background: rgba(0,0,0,0.2);
+    border-radius: 0;
+    min-width: auto;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+  }
+  .dropdown-menu.expanded {
+    max-height: 500px;
+    padding: 10px 0;
+  }
+  .dropdown-menu li a {
+    color: #ccc;
+    padding: 10px 45px;
+    font-size: 1rem;
+  }
+  .dropdown-menu li a:hover {
+    color: var(--primary-color);
+    background: transparent;
+  }
+  .hamburger-icon {
+    display: block;
+  }
+
+  /* === NEW STYLES FOR ACTIVE DROPDOWN === */
+  /* Highlights the parent link (e.g., "About") when its dropdown is open */
+  .dropdown:has(.dropdown-menu.expanded) > span {
+    color: var(--primary-color);
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  /* Rotates the arrow when the dropdown is open */
+  .dropdown:has(.dropdown-menu.expanded) .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+}

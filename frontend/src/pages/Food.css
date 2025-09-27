@@ -1,0 +1,308 @@
+.infrastructure-section {
+  background: linear-gradient(to bottom, #0a0f1a, #050a12);
+  color: #f8f9fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 80px 20px;
+  min-height: 100vh;
+  animation: fadeIn 1s ease;
+  overflow-x: hidden;
+}
+
+.instrumentation-hero {
+  background: url('https://tamilnadutesthouse.com/wp-content/uploads/2022/10/Banner-Option-1-e1715863763452.jpg') no-repeat center center/cover;
+  height: 240px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.instrumentation-hero h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 0 15px rgba(0, 234, 255, 0.4);
+  z-index: 2;
+}
+
+.breadcrumb {
+  text-align: center;
+  font-size: 0.95rem;
+  margin: 20px 0;
+  color: #ccc;
+}
+
+.instrument-header {
+  text-align: center;
+  margin: 60px 0 30px;
+}
+
+.instrument-header h2,
+.ai-title {
+  font-size: 2.5rem;
+  color: #f99807;
+  text-transform: uppercase;
+  text-shadow: 0 0 15px rgba(0, 234, 255, 0.4);
+}
+
+.instrument-link {
+  display:inline-block;
+  align-items: center;
+  margin-top: 10px;
+  color: #f4f7f7;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.instrument-link .check-icon {
+  margin-right: 130px;
+  display:hidden;
+}
+
+.instrument-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  padding: 40px 20px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* --- ADDED THIS RULE --- */
+.instrument-grid ul {
+  list-style-type: none; /* Removes the default bullet points */
+  padding: 0;
+  margin: 0;
+}
+/* ---------------------- */
+
+.instrument-grid li {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  padding: 14px 18px 14px 40px;
+  color: #e2e8f0;
+  font-size: 1rem;
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 24px rgba(0, 234, 255, 0.06);
+}
+
+.instrument-grid li::before {
+  content: "✔";
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #f99807;
+  font-size: 1.1rem;
+}
+
+.instrument-grid li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 35px rgba(0, 234, 255, 0.1);
+  color: #f9f9f9;
+}
+
+/* Analytical Infrastructure */
+.ai-section {
+  padding: 80px 20px;
+  text-align: center;
+  background: linear-gradient(to bottom, #050a12, #0a0f1a);
+}
+
+.ai-subtitle {
+  font-size: 1.1rem;
+  color: #b0b0b0;
+  margin-bottom: 50px;
+}
+
+.ai-swiper {
+  width: 92%;
+  margin: 0 auto;
+}
+
+.slide-wrapper {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 15px;
+  box-shadow: 0 10px 25px rgba(0, 234, 255, 0.05);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.slide-wrapper:hover {
+  transform: scale(1.03);
+  box-shadow: 0 15px 35px rgba(0, 234, 255, 0.2);
+}
+
+.ai-image {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.ai-caption {
+  font-size: 0.9rem;
+  color: #ddd;
+  margin-top: 10px;
+}
+
+/* Swiper Buttons & Pagination */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #00e6e6;
+}
+
+.swiper-pagination-bullet {
+  background: #00e6e6;
+  opacity: 0.3;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive – Tablets */
+@media (max-width: 992px) {
+  .ai-image {
+    height: 180px;
+  }
+
+  .instrument-header h2,
+  .ai-title {
+    font-size: 2rem;
+  }
+
+  .ai-subtitle {
+    font-size: 1rem;
+    margin-bottom: 40px;
+  }
+
+  .slide-wrapper {
+    padding: 12px;
+  }
+
+  .ai-caption {
+    font-size: 0.85rem;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none;
+  }
+}
+
+/* Responsive – Tablets (Portrait and Landscape) */
+@media (max-width: 768px) {
+  .instrumentation-hero {
+    height: 180px;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .instrumentation-hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .instrument-header h2,
+  .ai-title {
+    font-size: 1.8rem;
+  }
+
+  .instrument-grid {
+    padding: 30px 10px;
+    gap: 20px;
+  }
+
+  .instrument-grid li {
+    font-size: 0.95rem;
+    padding-left: 36px;
+  }
+
+  .ai-image {
+    height: 160px;
+  }
+
+  .ai-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+  }
+
+  .ai-caption {
+    font-size: 0.8rem;
+  }
+
+  .slide-wrapper {
+    padding: 10px;
+  }
+}
+
+/* Responsive – Mobile */
+@media (max-width: 576px) {
+  .infrastructure-section,
+  .ai-section {
+    padding: 60px 15px;
+  }
+
+  .instrumentation-hero {
+    height: 140px;
+    padding: 15px;
+  }
+
+  .instrumentation-hero h1 {
+    font-size: 1.6rem;
+    line-height: 1.4;
+  }
+
+  .breadcrumb {
+    font-size: 0.85rem;
+    margin: 15px 0;
+  }
+
+  .instrument-header {
+    margin: 40px 0 20px;
+  }
+
+  .instrument-header h2,
+  .ai-title {
+    font-size: 1.5rem;
+  }
+
+  .instrument-grid {
+    grid-template-columns: 1fr;
+    padding: 20px 10px;
+    gap: 15px;
+  }
+
+  .instrument-grid li {
+    font-size: 0.9rem;
+    padding: 12px 16px 12px 34px;
+  }
+
+  .ai-image {
+    height: 140px;
+  }
+
+  .ai-caption {
+    font-size: 0.75rem;
+  }
+
+  .swiper-pagination {
+    bottom: 5px !important;
+  }
+}

@@ -1,0 +1,142 @@
+.certificate-section {
+  background: linear-gradient(to bottom, #0a0f1a, #050a12);
+  color: #e2e8f0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 100px 20px;
+  text-align: center;
+  min-height: 100vh;
+}
+
+.breadcrumb {
+  font-size: 0.95rem;
+  margin-bottom: 30px;
+  color: #aaa;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: #f99807;
+  margin-bottom: 40px;
+  text-shadow: 0 0 12px rgba(255, 215, 0, 0.3);
+  text-transform: uppercase;
+}
+
+.certificate-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  padding: 20px 0;
+}
+
+.certificate-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 15px;
+  padding: 20px 30px;
+  width: 260px;
+  text-align: center;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0, 234, 255, 0.05);
+}
+
+.certificate-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 234, 255, 0.15);
+}
+
+.certificate-name {
+  font-size: 1.1rem;
+  color: #00e6e6;
+  font-weight: 600;
+}
+
+/* Modal Styling */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  width: 90%;
+  max-width: 700px;
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 0 8px 30px rgba(0, 234, 255, 0.2);
+  text-align: center;
+  backdrop-filter: blur(20px);
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+}
+
+.modal-caption {
+  margin-top: 12px;
+  font-size: 1rem;
+  color: #f0f0f0;
+  font-weight: 500;
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  font-size: 26px;
+  cursor: pointer;
+  color: #f99807;
+  font-weight: bold;
+  transition: 0.2s ease;
+}
+
+.modal-close:hover {
+  color: #fff;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .certificate-card {
+    width: 90%;
+    padding: 15px 20px;
+  }
+
+  .modal-content {
+    padding: 15px;
+  }
+
+  .modal-image {
+    max-height: 70vh;
+    object-fit: contain;
+  }
+}

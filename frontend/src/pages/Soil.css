@@ -1,0 +1,134 @@
+.consultancy-section {
+  background: linear-gradient(to bottom, #0a0f1a, #050a12);
+  color: #f8f9fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 80px 20px;
+  overflow-x: hidden;
+}
+
+.breadcrumb {
+  text-align: center;
+  font-size: 0.95rem;
+  margin-bottom: 30px;
+  color: #ccc;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #f99807;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+  text-shadow: 0 0 15px rgba(0, 234, 255, 0.4);
+}
+
+.consultancy-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.consultancy-content ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 20px;
+}
+
+.consultancy-content li {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 20px 20px 20px 50px;
+  border-radius: 15px;
+  position: relative;
+  font-size: 1.05rem;
+  color: #e2e8f0;
+  backdrop-filter: blur(10px);
+  line-height: 1.8;
+  transition: 0.3s ease;
+  box-shadow: 0 8px 30px rgba(0, 234, 255, 0.06);
+}
+
+.consultancy-content li:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 35px rgba(0, 234, 255, 0.15);
+}
+
+.check-icon {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #f99807;
+  font-size: 1.2rem;
+}
+
+/* Statistics Section */
+.consultancy-stats {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.stat-item {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+  width: 180px;
+  color: #e2e8f0;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(0, 234, 255, 0.05);
+}
+
+.stat-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 234, 255, 0.15);
+}
+
+.stat-number {
+  font-size: 2rem;
+  color: #00e6e6;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #ccc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-icon {
+  font-size: 30px;
+  color: #f99807;
+  margin-bottom: 6px;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .consultancy-content li {
+    font-size: 1rem;
+    padding-left: 45px;
+  }
+
+  .stat-item {
+    width: 100%;
+    max-width: 300px;
+  }
+}

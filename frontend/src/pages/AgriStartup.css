@@ -1,0 +1,156 @@
+/* ======== AgriStartup Page Styles ======== */
+.agristartup-container {
+  padding: 100px 20px;
+  background: linear-gradient(to bottom, #0a0f1a, #050a12);
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+}
+
+.agri-header {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 60px;
+}
+
+.agri-header h1 {
+  font-size: 2.5rem;
+  color: #ffa500; /* Orange */
+  margin-bottom: 20px;
+}
+
+.agri-header p {
+  font-size: 1.1rem;
+  color: #ccc;
+  line-height: 1.8;
+}
+
+/* Features Grid */
+.agri-features {
+  max-width: 1200px;
+  margin: 0 auto 80px;
+  text-align: center;
+}
+
+.agri-features h2 {
+  font-size: 2rem;
+  color: #ffa500;
+  margin-bottom: 40px;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+  padding: 0 20px;
+}
+
+.feature-card {
+  background: rgba(255, 165, 0, 0.08);
+  border: 1px solid rgba(255, 165, 0, 0.3);
+  border-radius: 16px;
+  padding: 30px 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(255, 165, 0, 0.1);
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(255, 165, 0, 0.4);
+}
+
+.feature-icon {
+  font-size: 40px;
+  color: #ffa500;
+  margin-bottom: 15px;
+}
+
+.feature-card h3 {
+  font-size: 1.3rem;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  font-size: 1rem;
+  color: #ccc;
+  line-height: 1.5;
+}
+
+/* === UPDATED APPLY SECTION STARTS HERE === */
+.agri-apply {
+  max-width: 900px;
+  margin: 0 auto 80px;
+}
+
+/* This is the new container card */
+.apply-content-box {
+  background: rgba(255, 165, 0, 0.08);
+  border: 1px solid rgba(255, 165, 0, 0.3);
+  border-radius: 16px;
+  padding: 40px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.agri-apply h2 {
+  font-size: 2rem;
+  color: #ffa500;
+  margin-bottom: 30px;
+}
+
+.agri-apply ul {
+  list-style: none;
+  padding: 0;
+  color: #ccc;
+  font-size: 1.05rem;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  text-align: left;
+}
+
+.agri-apply ul li {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Style for the new icons */
+.apply-icon {
+  color: #ffa500;
+  font-size: 1.2rem;
+}
+/* === UPDATED APPLY SECTION ENDS HERE === */
+
+/* Join Section */
+.agri-join {
+  text-align: center;
+  background: rgba(255, 165, 0, 0.05);
+  padding: 40px 20px;
+  border-top: 1px solid rgba(255, 165, 0, 0.2);
+}
+
+.agri-join h2 {
+  font-size: 2rem;
+  color: #ffa500;
+  margin-bottom: 15px;
+}
+
+.agri-join p {
+  font-size: 1.1rem;
+  color: #ccc;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .agri-header h1 {
+    font-size: 2rem;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+}

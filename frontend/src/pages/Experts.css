@@ -1,0 +1,155 @@
+.experts-page {
+  background: linear-gradient(to bottom, #0a0f1a, #050a12);
+  color: #f0f4f8;
+  font-family: 'Poppins', sans-serif;
+  padding: 100px 20px 80px;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.experts-page h1 {
+  text-align: center;
+  font-size: 2.8rem;
+  color: #fca311;
+  text-shadow: 0 0 10px rgba(252, 163, 17, 0.3);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.experts-quote {
+  text-align: center;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #ccc;
+  margin-bottom: 50px;
+  animation: fadeIn 1s ease;
+}
+
+/* Grid Layout */
+.experts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 10px;
+}
+
+/* Expert Card */
+.expert-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 18px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(12px);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  overflow: hidden;
+}
+
+.expert-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 14px 34px rgba(252, 163, 17, 0.2);
+}
+
+/* Image */
+.image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  margin-bottom: 16px;
+}
+
+.image-container img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  transition: transform 0.4s ease;
+}
+
+.image-container:hover img {
+  transform: scale(1.05);
+}
+
+/* Social Icons */
+.social-icons {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  gap: 14px;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+.image-container:hover .social-icons {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+.social-icons a {
+  background: #fca311;
+  color: #fff;
+  padding: 10px;
+  border-radius: 50%;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+.social-icons a:hover {
+  background: #ffb347;
+}
+
+/* Name & Role */
+.expert-card h5 {
+  font-size: 1.15rem;
+  color: #fca311;
+  margin: 10px 0 5px;
+  font-weight: 600;
+}
+
+.expert-card p {
+  font-size: 0.95rem;
+  color: #d1d5db;
+  margin-bottom: 0;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .experts-page {
+    padding: 70px 15px;
+  }
+
+  .experts-page h1 {
+    font-size: 2.2rem;
+  }
+
+  .expert-card h5 {
+    font-size: 1rem;
+  }
+
+  .expert-card p {
+    font-size: 0.9rem;
+  }
+
+  .image-container img {
+    height: 200px;
+  }
+}

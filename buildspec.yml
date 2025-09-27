@@ -1,0 +1,19 @@
+version: 0.2
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin <AWS_ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com
+      - IMAGE_URI=<339713028472>.dkr.ecr.us-east-1.amazonaws.com/exilieen-backend
+      - TAG=${CODEBUILD_RESOLVED_SOURCE_VERSION:0:7}
+  build:
+    commands:
+      - echo Building Docker image...
+      - docker build -t $IMAGE_URI:$TAG ./backend
+  post_build:
+    commands:
+      - echo Pushing image...
+      - docker push $IMAGE_URI:$TAG
+      - printf '[{"name":"exilieen-backend","imageUri":"%s"}]' $IMAGE_URI:$TAG > imagedefinitions.json
+artifacts:
+  files: imagedefinitions.json
