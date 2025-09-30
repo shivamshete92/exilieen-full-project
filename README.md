@@ -47,22 +47,16 @@ Exilieen-Full-Project/
 | Monitoring | AWS CloudWatch / Custom Dashboards |
 | Security   | HTTPS / SSL Certificates           |
 
----
-
-## ⚙️ Architecture Overview
-
-```mermaid
-flowchart LR
-    flowchart LR
+flowchart TD
     A[GitHub Repo] -->|Push to main| B[GitHub Actions CI/CD]
-    B --> C[Frontend Build]
-    B --> D[Backend Build]
+    B --> C[Build Frontend]
+    B --> D[Build Backend]
     C --> E[AWS EC2 Frontend]
     D --> F[AWS EC2 Backend]
     E --> G[CloudFront CDN]
     G --> H[Users]
+    F --> H[Users]
     F --> I[Monitoring & Alerts]
-```
 
 **Explanation:**
 
