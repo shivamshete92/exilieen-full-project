@@ -80,7 +80,7 @@ resource "aws_instance" "app_server" {
   instance_type               = "t3.micro"
   subnet_id                   = aws_subnet.main_subnet.id
   vpc_security_group_ids      = [aws_security_group.app_sg.id]
-  key_name                    = "stockholmac2key"
+  key_name                    = "stockholmac2key"  # Correct AWS key name
   associate_public_ip_address = true
 
   tags = {
@@ -97,19 +97,19 @@ resource "aws_instance" "app_server" {
               cd /home/ubuntu
               git clone https://github.com/shivamshete92/exilieen-full-project.git
 
-              # Frontend setup
+              # Frontend setup (dist)
               cd exilieen-full-project/frontend
               npm install
-              nohup npm start &
+              npm run build   # generates dist/
+              rm -rf /var/www/html/*
+              cp -r dist/* /var/www/html/
+              systemctl enable nginx
+              systemctl restart nginx
 
-              # Backend setup
+              # Backend setup on 0.0.0.0:5000
               cd ../backend
               npm install
-              nohup npm start &
-
-              # Start Nginx
-              systemctl enable nginx
-              systemctl start nginx
+              nohup npm start --host 0.0.0.0 --port 5000 &
               EOF
 }
 
@@ -128,15 +128,24 @@ resource "aws_sns_topic_subscription" "email" {
 resource "aws_cloudwatch_metric_alarm" "cpu_high" {
   alarm_name          = "exilieen-ec2-cpu-high"
   comparison_operator = "GreaterThanThreshold"
-  evaluation_periods  = "1"
+  evaluation_periods  = 1
   metric_name         = "CPUUtilization"
   namespace           = "AWS/EC2"
-  period              = "60"
+  period              = 60
   statistic           = "Average"
-  threshold           = "80"
+  threshold           = 80
   alarm_description   = "CPU > 80% on EC2 instance"
   alarm_actions       = [aws_sns_topic.alerts.arn]
   dimensions = {
     InstanceId = aws_instance.app_server.id
   }
+}
+
+# ------------------- Outputs -------------------
+output "instance_public_ip" {
+  value = aws_instance.app_server.public_ip
+}
+
+output "sns_topic_arn" {
+  value = aws_sns_topic.alerts.arn
 }
